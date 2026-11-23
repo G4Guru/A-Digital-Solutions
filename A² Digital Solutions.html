@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>A² Digital Solutions — Your Business. Digitally Better.</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0B1220;--navy2:#111b30;--teal:#19C3A6;--white:#fff;--slate:#64748B;--line:rgba(255,255,255,.1);color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--navy);color:#cbd5e1;font:400 16px/1.65 Inter,system-ui,sans-serif;overflow-x:hidden}
+h1,h2,h3,h4{font-family:Poppins,system-ui,sans-serif;color:var(--white);line-height:1.2;margin:0 0 .6rem}
+a{color:var(--teal);text-decoration:none}
+#bg{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.wrap{position:relative;z-index:1;max-width:1140px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(11,18,32,.75);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+.brand{display:flex;align-items:center;gap:10px;font:600 18px Poppins;color:#fff}
+.brand svg{width:34px;height:34px}
+.links{display:flex;gap:6px;align-items:center}
+.links a{color:#cbd5e1;padding:8px 12px;border-radius:8px;font-size:15px}
+.links a:hover,.links a.on{color:var(--teal);background:rgba(25,195,166,.08)}
+#tg{display:none;background:none;border:1px solid var(--line);color:#fff;border-radius:8px;font-size:22px;padding:2px 10px}
+.btn{display:inline-block;padding:13px 24px;border-radius:12px;font:600 15px Poppins;border:1px solid var(--teal);cursor:pointer;transition:transform .25s,box-shadow .25s}
+.btn.p{background:var(--teal);color:var(--navy)}
+.btn.g{color:var(--teal);background:rgba(25,195,166,.06)}
+.btn:hover{transform:translateY(-3px) scale(1.03);box-shadow:0 10px 30px rgba(25,195,166,.3)}
+.page{display:none;position:relative;z-index:1;min-height:70vh}
+.page.on{display:block;animation:pg .7s ease}
+@keyframes pg{from{opacity:0;transform:translateY(30px) rotateX(8deg)}to{opacity:1;transform:none}}
+section{padding:72px 0}
+.hero{min-height:82vh;display:flex;align-items:center}
+.hero h1{font-size:clamp(2.2rem,5.5vw,4rem);max-width:640px}
+.hero h1 em{font-style:normal;color:var(--teal)}
+.hero p{max-width:520px;font-size:1.1rem}
+.tag{display:inline-block;font:500 12px Poppins;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-bottom:12px}
+.grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.card{background:linear-gradient(160deg,rgba(255,255,255,.07),rgba(255,255,255,.02));border:1px solid var(--line);border-radius:18px;padding:26px;backdrop-filter:blur(6px);transform-style:preserve-3d;transition:transform .15s ease-out,border-color .3s;will-change:transform}
+.card:hover{border-color:var(--teal)}
+.card .ic{font-size:30px;color:var(--teal);display:block;margin-bottom:10px;transform:translateZ(40px)}
+.card h3{transform:translateZ(25px)}
+.card ul{padding-left:18px;margin:8px 0}
+.card .price{font:700 2rem Poppins;color:#fff}
+.card.rec{border-color:var(--teal);box-shadow:0 0 40px rgba(25,195,166,.15)}
+.badge{font:600 11px Poppins;background:var(--teal);color:var(--navy);padding:3px 10px;border-radius:99px}
+.badge.d{background:var(--slate);color:#fff}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;counter-reset:s}
+.step{border-left:2px solid var(--teal);padding:4px 0 4px 14px;counter-increment:s}
+.step::before{content:"0" counter(s);font:700 1.6rem Poppins;color:var(--teal);display:block}
+.cta{text-align:center;border:1px solid var(--teal);border-radius:24px;padding:56px 20px;background:radial-gradient(circle at 50% 0,rgba(25,195,166,.18),transparent 70%)}
+.pg-h{padding:64px 0 16px}
+.pg-h h1{font-size:clamp(2rem,4.5vw,3rem)}
+table{width:100%;border-collapse:collapse}
+td,th{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left}
+.tw{overflow-x:auto}
+.faq{border-bottom:1px solid var(--line)}
+.faq h4{cursor:pointer;margin:0;padding:16px 0;font-size:1rem}
+.faq h4::after{content:"+";float:right;color:var(--teal)}
+.faq div{display:none;padding-bottom:16px}
+input,textarea,select{width:100%;background:rgba(255,255,255,.05);border:1px solid var(--line);color:#fff;border-radius:10px;padding:12px;font:inherit;margin-bottom:12px}
+.rv{opacity:0;transform:translateY(40px) rotateX(10deg);transition:opacity .8s,transform .8s}
+.rv.in{opacity:1;transform:none}
+footer{position:relative;z-index:1;border-top:1px solid var(--line);background:rgba(11,18,32,.9);padding:40px 0 30px;font-size:14px}
+footer .grid{margin-bottom:20px}
+footer a{display:block;color:#cbd5e1;padding:3px 0}
+.muted{color:var(--slate)}
+.wa{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:30;background:#25D366;color:#06281a;font:600 14px Poppins;padding:12px 18px;border-radius:99px;box-shadow:0 8px 24px rgba(0,0,0,.4);animation:fl 3s ease-in-out infinite}
+@keyframes fl{50%{transform:translateY(-6px)}}
+@media(max-width:820px){#tg{display:block}.links{display:none;position:absolute;top:68px;left:0;right:0;flex-direction:column;background:var(--navy2);padding:12px;border-bottom:1px solid var(--line)}.links.open{display:flex}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<canvas id="bg"></canvas>
+<header><div class="wrap nav">
+<a class="brand" href="#home"><svg viewBox="0 0 40 40"><path d="M4 34 18 6l14 28h-6l-3-6H13l-3 6z M16 23h4l-2-5z" fill="#19C3A6" fill-rule="evenodd"/><text x="29" y="16" font-family="Poppins" font-weight="700" font-size="13" fill="#fff">2</text></svg>A² Digital Solutions</a>
+<button id="tg" aria-label="Menu">☰</button>
+<nav class="links" id="nv"><a href="#home">Home</a><a href="#services">Services</a><a href="#work">Our Work</a><a href="#about">About</a><a href="#packages">Packages</a><a href="#blog">Blog</a><a class="btn p" style="padding:8px 16px;color:#0B1220" href="#contact">Contact</a></nav>
+</div></header>
+
+<main>
+<div class="page" id="home">
+<section class="hero"><div class="wrap"><span class="tag">Your Business. Digitally Better.</span>
+<h1>Digital Solutions That Help Your Business <em>Grow.</em></h1>
+<p>We build professional websites, smart business systems and practical digital solutions for businesses across Pakistan.</p>
+<p><a class="btn p" href="#services">Explore Our Services</a> &nbsp; <a class="btn g" href="#contact">Get a Free Consultation</a></p></div></section>
+<section><div class="wrap"><span class="tag">What we do</span><h2>Our services</h2><div class="grid" data-r="svc-short"></div></div></section>
+<section><div class="wrap"><span class="tag">Why choose A²</span><h2>Built around your business</h2><div class="grid" data-r="why"></div></div></section>
+<section><div class="wrap"><span class="tag">Projects</span><h2>Selected work</h2><div class="grid" data-r="work"></div></div></section>
+<section><div class="wrap"><span class="tag">How we work</span><h2>A simple, clear process</h2><div class="steps" data-r="steps"></div></div></section>
+<section><div class="wrap"><span class="tag">Testimonials</span><h2>Client feedback</h2><div class="card rv tilt"><p>Genuine feedback from our clients will appear here once projects are completed. We only publish real reviews.</p></div></div></section>
+<section><div class="wrap"><div class="cta rv"><h2>Ready to Take Your Business Online?</h2><p>Tell us what you need. We’ll reply with a clear plan and a transparent price.</p><a class="btn p" href="#contact">Get a Free Consultation</a></div></div></section>
+</div>
+
+<div class="page" id="services"><div class="wrap"><div class="pg-h"><span class="tag">Services</span><h1>Reliable digital solutions, built around your needs.</h1><p>Websites come first. We offer the other services selectively while our workflow grows.</p></div><div class="grid" data-r="svc-full"></div></div></div>
+
+<div class="page" id="work"><div class="wrap"><div class="pg-h"><span class="tag">Our Work</span><h1>Portfolio &amp; case studies</h1><p>Real projects are shown as they are completed. Demonstration projects are clearly labelled.</p></div>
+<div class="grid" data-r="work"></div>
+<h2 style="margin-top:48px">Case studies</h2><div class="card tilt rv"><p>Detailed case studies (the problem, our solution and the result) will be published here after each client project is delivered with permission.</p></div>
+<h2 style="margin-top:48px">Project gallery</h2><div class="grid" data-r="gallery"></div></div></div>
+
+<div class="page" id="about"><div class="wrap"><div class="pg-h"><span class="tag">About Us</span><h1>Simplifying your business with technology.</h1></div>
+<div class="grid"><div class="card tilt rv"><h3>Our story</h3><p>A² Digital Solutions started with a simple idea: small and growing businesses in Pakistan deserve professional digital tools without agency-sized budgets or confusing jargon.</p></div>
+<div class="card tilt rv"><h3>Our mission</h3><p>To help businesses grow with practical websites, smart systems and dependable technical support.</p></div>
+<div class="card tilt rv"><h3>Our values</h3><ul><li>Honesty and transparent pricing</li><li>Practical, not over-engineered</li><li>Reliability after delivery</li></ul></div>
+<div class="card tilt rv"><h3>Our approach</h3><p>We listen first, propose clearly, build carefully, review with you, deliver on time and keep supporting you afterwards.</p></div></div>
+<h2 style="margin-top:48px">How we work</h2><div class="steps" data-r="steps"></div></div></div>
+
+<div class="page" id="packages"><div class="wrap"><div class="pg-h"><span class="tag">Packages</span><h1>Transparent launch pricing</h1><p>These are launch prices, not permanent prices.</p></div>
+<div class="grid" data-r="pk"></div>
+<h2 style="margin-top:48px">Additional services</h2><div class="card tw"><table data-r="add"></table></div>
+<h2 style="margin-top:48px">Monthly care plans</h2><div class="grid" data-r="care"></div>
+<p class="muted" style="margin-top:16px">Hosting, domain renewal, paid plugins, major redesigns and new features are separate unless included in a written agreement. Support is not unlimited: support hours are Monday–Saturday, 10:00 am–7:00 pm PKT. Standard requests receive a reply within 1 business day; priority plans within 4 business hours.</p>
+<h2 style="margin-top:48px">FAQs</h2><div id="faqs"></div></div></div>
+
+<div class="page" id="blog"><div class="wrap"><div class="pg-h"><span class="tag">Blog</span><h1>Business technology tips &amp; guides</h1></div><div class="grid" data-r="blog"></div></div></div>
+
+<div class="page" id="contact"><div class="wrap"><div class="pg-h"><span class="tag">Contact</span><h1>Let’s talk about your business.</h1></div>
+<div class="grid"><form class="card" id="cf"><h3>Service enquiry</h3><input id="n" placeholder="Your name" required><input id="p" placeholder="Phone / WhatsApp"><select id="s"><option>Website Development</option><option>Business Automation</option><option>Digital Presence</option><option>IT &amp; Technical Support</option></select><textarea id="m" rows="4" placeholder="Tell us about your business"></textarea><button class="btn p" type="submit">Send via WhatsApp</button></form>
+<div class="card tilt"><h3>Reach us directly</h3><p><a href="https://wa.link/7w5ipa" target="_blank" rel="noopener">WhatsApp Business</a></p><p><a href="mailto:hello@a2.tech">hello@a2.tech</a></p><p><a href="https://www.instagram.com/a2.tech__/" target="_blank" rel="noopener">Instagram @a2.tech__</a></p><p class="muted">Remote service across Pakistan.</p></div></div></div></div>
+
+<div class="page" id="privacy"><div class="wrap"><div class="pg-h"><h1>Privacy Policy</h1></div><div class="card"><p>We collect only the details you send us (name, phone, email, project information) to respond to enquiries and deliver services. We do not sell your data. Contact forms open WhatsApp, which has its own privacy terms. You may ask us to correct or delete your information at any time.</p><p class="muted">Draft text: please have it reviewed before launch.</p></div></div></div>
+<div class="page" id="terms"><div class="wrap"><div class="pg-h"><h1>Terms &amp; Conditions</h1></div><div class="card"><p>Services, scope and prices are defined in a written proposal. Work begins after agreement and any advance payment. Hosting, domains, paid plugins, major redesigns and new features are separate unless included in writing. Support is provided during stated working hours and is not unlimited. Clients provide content and approvals on time.</p><p class="muted">Draft text: please have it reviewed before launch.</p></div></div></div>
+<div class="page" id="refund"><div class="wrap"><div class="pg-h"><h1>Refund Policy</h1></div><div class="card"><p>If we have not started work, the advance payment is refundable. Once design or development has started, payment covers completed work. If we cannot deliver what the proposal describes, we will fix it or refund the affected portion. Recurring care plans can be cancelled before the next billing month.</p><p class="muted">Draft text: please have it reviewed before launch.</p></div></div></div>
+</main>
+
+<footer><div class="wrap"><div class="grid"><div><b style="color:#fff;font-family:Poppins">A² Digital Solutions</b><br>Your Business. Digitally Better.</div>
+<div><a href="#services">Services</a><a href="#work">Our Work</a><a href="#packages">Packages</a></div>
+<div><a href="#privacy">Privacy Policy</a><a href="#terms">Terms &amp; Conditions</a><a href="#refund">Refund Policy</a></div>
+<div><a href="https://wa.link/7w5ipa" target="_blank" rel="noopener">WhatsApp</a><a href="https://www.instagram.com/a2.tech__/" target="_blank" rel="noopener">Instagram</a></div></div>
+<div class="muted">© 2026 A² Digital Solutions. All rights reserved.</div></div></footer>
+<a class="wa" href="https://wa.link/7w5ipa" target="_blank" rel="noopener">WhatsApp us</a>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+var SV=[["◈","Website Development",["Business websites","Company portfolios","Landing pages","Restaurant websites","Clinic websites","Website redesigns"]],
+["⚙","Business Automation",["Customer enquiry systems","Booking forms","WhatsApp integrations","Inventory and record systems","Custom business dashboards"]],
+["✦","Digital Presence",["Business branding","Social media graphics","Google Business Profile assistance","WhatsApp Business setup","Digital business portfolios"]],
+["⛭","IT & Technical Support",["Website maintenance","Technical troubleshooting","Network and printer support","System updates and backups","Remote support"]]];
+var WH=["Practical business-focused solutions","Responsive website development","Transparent pricing","Nationwide remote service","Ongoing technical support"];
+var WK=[["Demo: Restaurant Website","Menu, gallery and WhatsApp ordering concept.","Demonstration project"],["Demo: Clinic Website","Appointment enquiry and Google Maps concept.","Demonstration project"],["Demo: Construction Portfolio","Project gallery and lead enquiry form concept.","Demonstration project"]];
+var ST=["Consultation","Proposal","Development","Review","Delivery","Support"];
+var PK=[["Starter Website","Entry package","Rs. 8,000",["One-page responsive website","Business introduction","Services section","Contact information","WhatsApp contact button","Basic SEO setup"],"Suitable for freelancers and small businesses."],
+["Business Website","Recommended","Rs. 15,000",["Up to 5 pages","Responsive design","About and services pages","Contact form","WhatsApp integration","Basic SEO","Google Maps integration"],"Suitable for clinics, restaurants and retailers."],
+["Professional Portfolio","","Rs. 22,000",["Up to 8 pages","Premium visual design","Projects and portfolio gallery","Lead enquiry forms","WhatsApp integration","Basic SEO","Performance optimization"],"Suitable for construction, paint and real estate businesses."]];
+var AD=[["Additional page","Rs. 1,500"],["WhatsApp Business setup","Rs. 2,500"],["Business email setup","Rs. 1,500"],["Website redesign","From Rs. 8,000"],["Basic SEO setup","Rs. 3,000"],["Website maintenance","Rs. 2,500/month"],["Advanced business automation","From Rs. 15,000"]];
+var CR=[["Essential Care","Rs. 2,500",["Website health checks","Software updates where applicable","Monthly backup","Minor content changes up to 30 minutes"]],["Business Care","Rs. 4,000",["Everything in Essential","Up to 90 minutes of minor changes","Monthly performance review","Priority support during business hours"]],["Growth Care","Rs. 6,000",["Everything in Business Care","Up to 2 hours of website improvements","Monthly website report","Priority technical support"]]];
+var FQ=[["Are these prices permanent?","No. These are launch prices and may change."],["Is hosting included?","Hosting, domain renewal and paid plugins are separate unless included in a written agreement."],["Do you offer unlimited support?","No. Support has defined working hours and response times, depending on your plan."],["Do you work outside your city?","Yes. We serve businesses across Pakistan remotely."],["Can I upgrade later?","Yes. You can add pages, care plans or automation at any time."]];
+var BL=[["Websites","Why every small business needs a mobile-friendly website","5 min read"],["WhatsApp","Getting more from WhatsApp Business for customer enquiries","4 min read"],["Maintenance","What website maintenance really includes (and why it matters)","6 min read"]];
+var GL=["Restaurant","Clinic","Real estate","Retail"];
+function ul(a){return"<ul>"+a.map(function(x){return"<li>"+x+"</li>"}).join("")+"</ul>"}
+function C(h,c){return'<div class="card tilt rv '+(c||"")+'">'+h+"</div>"}
+var R={
+"svc-short":SV.map(function(s){return C('<span class="ic">'+s[0]+"</span><h3>"+s[1]+"</h3><p>"+s[2].slice(0,3).join(", ")+"…</p><a href='#services'>Learn more →</a>")}),
+"svc-full":SV.map(function(s,i){return C('<span class="ic">'+s[0]+"</span><span class='tag'>0"+(i+1)+"</span><h3>"+s[1]+"</h3>"+ul(s[2]))}),
+why:WH.map(function(w){return C('<span class="ic">✓</span><h3>'+w+"</h3>")}),
+work:WK.map(function(w){return C('<span class="badge d">'+w[2]+"</span><h3 style='margin-top:12px'>"+w[0]+"</h3><p>"+w[1]+"</p>")}),
+steps:ST.map(function(s){return'<div class="step rv"><b style="color:#fff">'+s+"</b></div>"}),
+gallery:GL.map(function(g){return C('<span class="ic">▣</span><h3>'+g+"</h3><p class='muted'>Demo concept</p>")}),
+pk:PK.map(function(p){return C((p[1]?'<span class="badge">'+p[1]+"</span>":"")+"<h3 style='margin-top:10px'>"+p[0]+'</h3><div class="price">'+p[2]+"</div>"+ul(p[3])+"<p class='muted'>"+p[4]+"</p><a class='btn p' href='#contact'>Get started</a>",p[1]=="Recommended"?"rec":"")}),
+care:CR.map(function(p){return C("<h3>"+p[0]+'</h3><div class="price">'+p[1]+'<small style="font-size:.9rem;color:#64748B">/month</small></div>'+ul(p[2]))}),
+add:"<tr><th>Service</th><th>Launch price</th></tr>"+AD.map(function(a){return"<tr><td>"+a[0]+"</td><td>"+a[1]+"</td></tr>"}).join(""),
+blog:BL.map(function(b){return C('<span class="tag">'+b[0]+"</span><h3>"+b[1]+"</h3><p class='muted'>"+b[2]+" · Guide coming soon</p>")})};
+$(function(){
+$("[data-r]").each(function(){var v=R[$(this).data("r")];$(this).html($.isArray(v)?v.join(""):v)});
+$("#faqs").html(FQ.map(function(f){return'<div class="faq"><h4>'+f[0]+"</h4><div>"+f[1]+"</div></div>"}).join(""));
+$(document).on("click",".faq h4",function(){$(this).next().slideToggle(200)});
+$("#tg").click(function(){$("#nv").toggleClass("open")});
+var io=window.IntersectionObserver?new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add("in");io.unobserve(x.target)}})},{threshold:.1}):null;
+function reveal(){$(".page.on .rv:not(.in)").each(function(i,el){io?io.observe(el):$(el).addClass("in")})}
+var order=["home","services","work","about","packages","blog","contact","privacy","terms","refund"],pi=0;
+function route(){var h=(location.hash||"#home").slice(1);if(order.indexOf(h)<0)h="home";pi=order.indexOf(h);
+$(".page").removeClass("on");$("#"+h).addClass("on");$(".links a").removeClass("on").filter('[href="#'+h+'"]').addClass("on");$("#nv").removeClass("open");window.scrollTo(0,0);reveal();window.scene&&window.scene.go(pi)}
+$(window).on("hashchange",route);
+$(document).on("mousemove",".tilt",function(e){var r=this.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;this.style.transform="perspective(700px) rotateY("+x*14+"deg) rotateX("+-y*14+"deg) translateZ(8px)"}).on("mouseleave",".tilt",function(){this.style.transform=""});
+$("#cf").on("submit",function(e){e.preventDefault();var t="Hello A² Digital Solutions, I’m "+$("#n").val()+" ("+$("#p").val()+"). Service: "+$("#s").val()+". "+$("#m").val();window.open("https://wa.me/?text="+encodeURIComponent(t),"_blank")});
+route();
+try{initScene()}catch(err){}
+});
+function initScene(){
+var cv=document.getElementById("bg"),rn=new THREE.WebGLRenderer({canvas:cv,alpha:true,antialias:true});rn.setPixelRatio(Math.min(devicePixelRatio,2));
+var sc=new THREE.Scene(),cam=new THREE.PerspectiveCamera(55,1,.1,100);cam.position.z=7;
+var T=0x19C3A6,g=new THREE.Group();sc.add(g);
+var ico=new THREE.Mesh(new THREE.IcosahedronGeometry(1.7,1),new THREE.MeshBasicMaterial({color:T,wireframe:true,transparent:true,opacity:.55}));
+var core=new THREE.Mesh(new THREE.OctahedronGeometry(.9),new THREE.MeshBasicMaterial({color:T,transparent:true,opacity:.18}));
+var ring=new THREE.Mesh(new THREE.TorusGeometry(2.4,.02,8,100),new THREE.MeshBasicMaterial({color:0xffffff,transparent:true,opacity:.5}));
+var ring2=ring.clone();ring2.rotation.x=1.2;g.add(ico,core,ring,ring2);
+var cubes=[];for(var i=0;i<16;i++){var m=new THREE.Mesh(new THREE.BoxGeometry(.25,.25,.25),new THREE.MeshBasicMaterial({color:i%3?T:0x64748B,wireframe:true}));m.position.set((Math.random()-.5)*16,(Math.random()-.5)*10,(Math.random()-.5)*8-2);m.userData.s=Math.random()*.01+.004;m.userData.p=Math.random()*6;sc.add(m);cubes.push(m)}
+var pg=new THREE.BufferGeometry(),pa=[];for(i=0;i<300;i++)pa.push((Math.random()-.5)*22,(Math.random()-.5)*14,(Math.random()-.5)*12-3);
+pg.setAttribute("position",new THREE.Float32BufferAttribute(pa,3));var pts=new THREE.Points(pg,new THREE.PointsMaterial({color:0xffffff,size:.03}));sc.add(pts);
+var mx=0,my=0,tx=0,ty=0,tz=0,tr=0,calm=matchMedia("(prefers-reduced-motion:reduce)").matches;
+function size(){var w=innerWidth,h=innerHeight;rn.setSize(w,h,false);cam.aspect=w/h;cam.updateProjectionMatrix()}size();addEventListener("resize",size);
+addEventListener("mousemove",function(e){mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5});
+window.scene={go:function(p){var d=innerWidth>820,s=[1,-1][p%2];tx=d?(p==0?2.6:s*3.4):0;ty=d?0:1.8;tz=p==0?0:-1.5;tr+=Math.PI*.6}};
+window.scene.go(pi||0);
+var t=0;(function loop(){requestAnimationFrame(loop);t+=calm?.0005:.01;
+var sy=scrollY/ (document.body.scrollHeight||1);
+g.position.x+=(tx-g.position.x)*.04;g.position.y+=(ty-sy*6-g.position.y)*.04;g.position.z+=(tz-g.position.z)*.04;
+g.rotation.y+=.004+(tr-g.rotation.y%(Math.PI*20))*0;ico.rotation.x=t*.5;core.rotation.y=-t;ring.rotation.z=t*.6;ring2.rotation.y=t*.4;
+g.scale.setScalar(innerWidth>820?1:.65+Math.sin(t)*.02);
+cam.position.x+=(mx*2-cam.position.x)*.04;cam.position.y+=(-my*1.5-cam.position.y)*.04;cam.lookAt(0,0,0);
+cubes.forEach(function(c){c.rotation.x+=c.userData.s*2;c.rotation.y+=c.userData.s*3;c.position.y+=Math.sin(t+c.userData.p)*.003});
+pts.rotation.y=t*.03+scrollY*.0004;rn.render(sc,cam)})()}
+</script>
+</body>
+</html>
